@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1" />
+<title>Profile-Emp</title>
+
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+	integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+	crossorigin="anonymous" />
+</head>
+<body style="background-image: url('spikes.png')">
+	<nav class="navbar navbar-light" style="background-color: lightblue">
+		<div class="d-inline-flex p-2 bd-highlight">
+			<a class="nav-link" href="home-emp.html"><strong>HOME</strong> </a> <a
+				class="nav-link" href="expense-emp.html"><strong>EXPENSE REIMBURSEMENT</strong></a>
+			<a class="nav-link" href="profile-emp.html"><strong>PROFILE</strong></a>
+		</div>
+
+		<span class="navbar-brand mb-0 h1" style="text-transform: uppercase"
+			id="welcome"></span>
+	</nav>
+
+	<br />
+	<br />
+	<br />
+	<div style="max-width: 90%; margin: auto">
+		<div style="background-color: lightblue; height: 40px; padding: 5px">
+			<strong> PERSONAL INFORMATION </strong>
+
+		</div>
+		<form onsubmit="update(event.preventDefault())">
+			<div
+				style="width: 100%; padding-left: 400px; padding-top: 20px; padding-bottom: 20px; background-color: white;">
+				<p style="margin-left: 60px; color: #007bff">
+					<em><b> After update, you will be redirected to Login page</b></em>
+				</p>
+				<br />
+				<div class="row mt-2">
+					<p style="padding: 5px 0 5px 20px;">First name</p>
+					<div class="col-md-2">
+						<input type="text" class="form-control" placeholder="first name"
+							id="fname" required>
+					</div>
+					<p style="padding: 5px 0 5px 20px;">Last name</p>
+					<div class="col-md-2">
+						<input type="text" class="form-control" placeholder="last name"
+							id="lname" required>
+					</div>
+				</div>
+				<div class="row mt-2">
+					<p style="padding: 5px 37px 5px 20px;">Email</p>
+					<div class="col-md-2">
+						<input type="text" class="form-control" placeholder="Email"
+							id="mail" required>
+					</div>
+					<p style="padding: 5px 0 5px 20px;">Username</p>
+					<div class="col-md-2">
+						<input type="text" class="form-control" placeholder="username"
+							id="uName" required>
+					</div>
+				</div>
+				<div class="row mt-2">
+					<p style="padding: 5px 10px 5px 20px;">Password</p>
+					<div class="col-md-2">
+						<input type="password" class="form-control" placeholder="password"
+							id="pWord" required>
+					</div>
+
+					<div style="margin-left: 108px;">
+						<button class="btn btn-primary profile-button" type="submit">Save
+							Profile</button>
+					</div>
+				</div>
+
+				<div id="warningText" style="color: red"></div>
+				<div id="approvedText" style="color: green"></div>
+			</div>
+		</form>
+
+	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<div class="card"
+		style="margin-top: 50px; margin-left: 600px; text-align: center; width: 18rem; margin: auto;">
+		<h5 class="card-title">Logout</h5>
+		<p class="card-text">To logout and enter login page click button
+			below</p>
+		<a  class="btn btn-primary" onclick="logout()">Click Here</a>
+	</div>
+	<script src="scripts/profile-emp.js"></script>
+</body>
+</html>

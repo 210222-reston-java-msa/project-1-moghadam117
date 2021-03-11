@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1" />
+<title>Expenses-emp</title>
+
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+	integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+	crossorigin="anonymous" />
+</head>
+<body style="background-image: url('spikes.png')">
+	<nav class="navbar navbar-light" style="background-color: lightblue">
+		<div class="d-inline-flex p-2 bd-highlight">
+			<a class="nav-link" href="home-emp.html"><strong>HOME</strong> </a> <a
+				class="nav-link" href="expense-emp.html"><strong>EXPENSE
+					REIMBURSEMENT</strong></a> <a class="nav-link" href="profile-emp.html"><strong>PROFILE</strong></a>
+		</div>
+
+		<span class="navbar-brand mb-0 h1" style="text-transform: uppercase"
+			id="welcome"></span>
+	</nav>
+
+	<br />
+	<br />
+	<br />
+	<div style="max-width: 90%; margin: auto">
+		<div style="background-color: lightblue; height: 40px; padding: 5px">
+			<strong> EXPENSE REIMBURSEMENT </strong>
+		</div>
+		<br />
+		<div
+			style="background-color: white; height: 80px; border: 1px solid silver">
+			<form class="form-inline" style="padding-top: 15px">
+				<label for="amount" class="col-sm-1">Amount</label> <input
+					id="amount" type="number" class="form-control mb-2 mr-sm-2"
+					id="inlineFormInputName2" placeholder="0" required /> <label
+					for="" class="col-sm-2">Type of Reimbursement</label> <select
+					id="typeId" class="form-control" required>
+					<option value="">Please make a selection</option>
+					<option value="lodging">Lodging</option>
+					<option value="travel">Travel</option>
+					<option value="food">Food</option>
+					<option value="other">Other</option>
+				</select>
+
+				<button style="margin-left: 400px; margin-top: 4px" type="submit"
+					class="btn btn-primary mb-2" onclick="submitExpense()">
+					Submit</button>
+			</form>
+		</div>
+		<div style="background: white; border: 1px solid silver">
+			<h6 style="padding: 5px" class="h6">DESCRIPTION</h6>
+			<textarea name="description" id="description" cols="30" rows="10"
+				required style="width: 30%; height: 100px; margin: 20px"></textarea>
+		</div>
+	</div>
+	<br />
+	<div style="width: 90%; margin: auto">
+		<p class="h6"
+			style="text-align: center; background-color: white; height: 40px; padding: 10px; border: 1px solid silver;">
+			You May See Your Previous Reimbursements Below</p>
+		<table style="background-color: white; text-align: center"
+			class="table table-hover">
+			<thead>
+				<tr>
+					<th scope="col">REIMBURSEMENT ID</th>
+					<th scope="col">AMOUNT</th>
+					<th scope="col" style="width: 300px">DESCRIPTION</th>
+					<th scope="col">SUBMIT DATE</th>
+					<th scope="col">RESOLVE DATE</th>
+					<th scope="col">AUTHOR ID</th>
+					<th scope="col">RESOLVER ID</th>
+					<th scope="col">STATUS</th>
+					<th scope="col">TYPE</th>
+				</tr>
+			</thead>
+			<tbody id="table"></tbody>
+		</table>
+	</div>
+	<div class="card"
+		style="margin-top: 50px; margin-left: 600px; text-align: center; width: 18rem;">
+		<h5 class="card-title">Logout</h5>
+		<p class="card-text">To logout and enter login page click button
+			below</p>
+		<a class="btn btn-primary" onclick="logout()">Click Here</a>
+	</div>
+	<script src="scripts/expense-emp.js"></script>
+</body>
+</html>

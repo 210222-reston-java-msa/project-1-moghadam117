@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="ISO-8859-1" />
+    <title>Login-emp</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div
+      style="background: lightblue !important"
+      class="jumbotron jumbotron-fluid"
+    >
+      <div class="container">
+        <h1 class="display-4">Welcome to Employee Reimbursment System</h1>
+        <h2 class="display-" style="text-align: center">Employee Login</h2>
+        <br />
+        <div
+          class="card text-right"
+          style="
+            float: right;
+            width: 19rem;
+            border: 0;
+            background: lightblue !important;
+          "
+        >
+          <div class="card-body">
+            <h5 class="card-title">Manager Login, Enter Here</h5>
+
+            <a href="login-man.html" class="btn btn-primary">Manager Login</a>
+          </div>
+        </div>
+        <br />
+        <br />
+        <p class="lead">
+          <b
+            >Please login below with your username and password to enter
+            Employee Homepage</b
+          >
+        </p>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <form name="loginForm" onsubmit="sendLogin(event.preventDefault())">
+      
+
+        <div class="form-group">
+          <label for="uName">USERNAME</label>
+        
+          <input
+            type="text"
+            class="form-control"
+            name="username"
+            id="uName"
+            placeholder="Enter Username"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="pWord">PASSWORD</label>
+          
+          <input
+            type="password"
+            class="form-control"
+            name="password"
+            id="pWord"
+            placeholder="Enter Password"
+            required
+          />
+        </div>
+        <div id="warningText" style="color: red"></div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+
+    <script src="scripts/login-emp.js"></script>
+  </body>
+</html>

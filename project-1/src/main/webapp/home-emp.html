@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="ISO-8859-1" />
+    <title>Home-emp</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body style="background-image: url('spikes.png')">
+    <nav class="navbar navbar-light" style="background-color: lightblue">
+      <div class="d-inline-flex p-2 bd-highlight">
+        <a class="nav-link" href="home-emp.html"><strong>HOME</strong> </a>
+        <a class="nav-link" href="expense-emp.html"><strong>EXPENSE REIMBURSEMENT</strong></a>
+        <a class="nav-link" href="profile-emp.html"><strong>PROFILE</strong></a>
+      </div>
+
+      <span class="navbar-brand mb-0 h1" style="text-transform: uppercase"
+        id="welcome"></span
+      >
+    </nav>
+
+    <br />
+    <br />
+    <br />
+    <div style="text-align: center" class="d-inline-flex p- bd-highlight">
+      <div style="margin-left: 220px" class="card w-40">
+        <div class="card-body">
+          <h5 class="card-title">Expense Reimbursements</h5>
+          <p class="card-text">
+            To Create new expense or view your previous expenses click below
+          </p>
+          <a  class="btn btn-primary" onclick="expense()">Click Here</a>
+        </div>
+      </div>
+
+      <div style="margin-left: 50px" class="card w-40">
+        <div class="card-body">
+          <h5 class="card-title">Update Profile</h5>
+          <p class="card-text">
+            To view or update your profile information click below
+          </p>
+          <a  class="btn btn-primary" onclick="profile()" >Click Here</a>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="card"
+      style="
+        margin-top: 50px;
+        margin-left: 600px;
+        text-align: center;
+        width: 18rem;
+      "
+    >
+      <h5 class="card-title">Logout</h5>
+      <p class="card-text">To logout and enter login page click button below</p>
+      <a class="btn btn-primary" onclick="logout()">Click Here</a>
+    </div>
+   <script src="scripts/home-emp.js"></script>
+  </body>
+</html>

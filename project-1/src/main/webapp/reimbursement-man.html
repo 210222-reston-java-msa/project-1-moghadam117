@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1" />
+<title>Home</title>
+
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+	integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+	crossorigin="anonymous" />
+</head>
+<body style="background-image: url('spikes.png')">
+	<nav class="navbar navbar-light" style="background-color: lightblue">
+		<div class="d-inline-flex p-2 bd-highlight">
+			<a class="nav-link" href="home-man.html"><strong>HOME</strong> </a> <a
+				class="nav-link" href="reimbursement-man.html"><strong>EMPLOYEE
+					LIST AND REIMBURSEMENTS</strong></a> <a class="nav-link" href="assigned-man.html"><strong>ASSIGNED
+					REIMBURSEMENTS</strong></a>
+		</div>
+
+		<span class="navbar-brand mb-0 h1" style="text-transform: uppercase"
+			id="welcome">name</span>
+	</nav>
+
+	<br />
+	<br />
+	<br />
+	<div style="max-width: 90%; margin: auto">
+		<div style="background-color: lightblue; height: 40px; padding: 5px;">
+			<strong> EMPLOYEE LIST AND REIMBURSEMENTS </strong>
+		</div>
+		<br>
+		<div
+			style="background-color: white; height: 80px; border: 1px solid silver;">
+			<div class="form-inline" style="padding-top: 15px;">
+				<label  class="col-sm-1 ">Emp ID</label> <input
+					type="number" class="form-control mb-2 mr-sm-2" id="id"
+					placeholder="" style="margin-top: 10px;">
+				<a class="btn btn-primary" onclick="reimbById()">Search</a>
+
+				<label  class="col-sm-2 ">View Reimbursement</label>
+				<select class="form-control" id="status" onChange="reimbByStatus(this)">
+					<option value="">Please make a selection</option>
+					<option value="pending">Pending</option>
+					<option value="approved">Approved</option>
+					<option value="denied">Denied</option>
+					<option value="all">All</option>
+				</select>
+
+
+				<a style="margin-left: 40px; margin-top: 4px;" type="submit"
+					class="btn btn-primary " onclick="reimbByStatus()">Submit</a>
+			</div>
+		</div>
+
+
+
+	</div>
+	<br>
+	<div style="width: 90%; margin: auto;">
+			<table style="background-color: white; text-align: center"
+			class="table table-hover">
+			<thead>
+				<tr>
+					<th scope="col">REIMBURSEMENT ID</th>
+					<th scope="col">AMOUNT</th>
+					<th scope="col" style="width: 300px">DESCRIPTION</th>
+					<th scope="col">SUBMIT DATE</th>
+					<th scope="col">RESOLVE DATE</th>
+					<th scope="col">AUTHOR ID</th>
+					<th scope="col">RESOLVER ID</th>
+					<th scope="col">STATUS</th>
+					<th scope="col">TYPE</th>
+				</tr>
+			</thead>
+			<tbody id="table"></tbody>
+		</table>
+	</div>
+	<div class="card"
+		style="margin-top: 50px; margin-left: 600px; text-align: center; width: 18rem;">
+		<h5 class="card-title">Logout</h5>
+		<p class="card-text">To logout and enter login page click button
+			below</p>
+		<a class="btn btn-primary" onclick="logout()">Click Here</a>
+	</div>
+	<script src="scripts/reimbursement-man.js">
+		
+	</script>
+</body>
+</html>
