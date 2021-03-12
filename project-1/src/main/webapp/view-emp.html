@@ -32,30 +32,34 @@
         id="welcome"
       ></span>
     </nav>
-
     <br />
     <br />
     <br />
-    <div style="text-align: center" class="d-inline-flex p- bd-highlight">
-      <div style="margin-left: 220px" class="card w-40">
-        <div class="card-body">
-          <h5 class="card-title">Expense Reimbursements</h5>
-          <p class="card-text">
-            To Create new expense or view your previous expenses click below
-          </p>
-          <a class="btn btn-primary" onclick="expense()">Click Here</a>
-        </div>
+    <div style="max-width: 90%; margin: auto">
+      <div style="background-color: lightblue; height: 40px; padding: 5px">
+        <strong> VIEW PROFILE </strong>
       </div>
-
-      <div style="margin-left: 50px" class="card w-40">
-        <div class="card-body">
-          <h5 class="card-title">Update Profile</h5>
-          <p class="card-text">
-            To view or update your profile information click below
-          </p>
-          <a class="btn btn-primary" onclick="profile()">Click Here</a>
-        </div>
-      </div>
+    </div>
+    <br />
+    <div style="width: 90%; margin: auto">
+      <table
+        style="background-color: white; text-align: center"
+        class="table table-hover"
+      >
+        <thead>
+          <tr>
+            <th scope="col">USER ID</th>
+            <th scope="col">USERNAME</th>
+            <th scope="col">PASSWORD</th>
+            <th scope="col">FIRST NAME</th>
+            <th scope="col">LAST NAME</th>
+            <th scope="col">EMAIL</th>
+            <th scope="col" style="display: none">ROLE ID</th>
+            <th scope="col">ROLE NAME</th>
+          </tr>
+        </thead>
+        <tbody id="table"></tbody>
+      </table>
     </div>
 
     <div
@@ -71,6 +75,6 @@
       <p class="card-text">To logout and enter login page click button below</p>
       <a class="btn btn-primary" onclick="logout()">Click Here</a>
     </div>
-    <script src="scripts/home-emp.js"></script>
+    <script src="scripts/view-emp.js"></script>
   </body>
 </html>

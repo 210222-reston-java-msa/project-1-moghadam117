@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -331,6 +332,29 @@ public class RequestHelper {
 
 		
 
+	}
+public static void processError(HttpServletRequest req, HttpServletResponse res) throws IOException {
+		
+		try {
+			req.getRequestDispatcher("error.html").forward(req, res);
+			// we do NOT create a new request
+			// we also maintain the url....
+		} catch (ServletException | IOException e) {
+			e.printStackTrace();
+		}
+	
+	}
+	
+	public static void processFindAllEmp(HttpServletRequest req, HttpServletResponse res) throws IOException {
+		res.setContentType("application/json");
+		List<User> allUsers = ManagerService.findAll();
+		
+
+		String json = om.writeValueAsString(allUsers);
+
+		PrintWriter pw = res.getWriter();
+
+		pw.println(json);
 	}
 
 

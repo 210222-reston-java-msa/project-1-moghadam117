@@ -25,5 +25,12 @@
 		<url-pattern>/reimb-status</url-pattern>
 		<url-pattern>/reimb-all</url-pattern>
 		<url-pattern>/resolve-man</url-pattern>
+		<url-pattern>/emp-all</url-pattern>
 	</servlet-mapping>
+	    <error-page>
+  <error-code>
+  404
+  </error-code>
+  <location>/error</location>
+  </error-page>
 </web-app>

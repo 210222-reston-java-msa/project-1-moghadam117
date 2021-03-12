@@ -15,8 +15,8 @@ public class Driver {
 		ManagerService mg = new ManagerService();
 		
 		ReimbursementService rs = new ReimbursementService();
-		System.out.println(rs.findAll());
-		Reimbursement r = new Reimbursement(0, 400, "xxx", "s", 2, new Status(1,"ss") ,new Type(2, "vv"));
+		System.out.println(mg.findAll());
+	//	Reimbursement r = new Reimbursement(0, 400, "xxx", "s", 2, new Status(1,"ss") ,new Type(2, "vv"));
 		//rs.submitReimbEmp(r);
 	//	Reimbursement reimb = new Reimbursement(0, 200, "Xyz", "s", 2, new Status (1, "ss"), new Type(1, "ss"));
 		//rs.submitReimbEmp(reimb);
@@ -30,8 +30,8 @@ public class Driver {
 		
 		//Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         //System.out.println(timestamp);
-		Reimbursement z = new Reimbursement(8, 1,  new Status(3, "xx"));
-		rs.resolveReimbMan(z);
+		//Reimbursement z = new Reimbursement(8, 1,  new Status(3, "xx"));
+		//rs.resolveReimbMan(z);
 		//System.out.println(rs.findByStatus(3));
 	}
 }

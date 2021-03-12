@@ -52,11 +52,14 @@ public class FrontController extends HttpServlet {
 		case "resolve-man":
 			RequestHelper.processResolve(request, response);
 			break;
+		case "emp-all":
+			RequestHelper.processFindAllEmp(request, response);
+			break;
 			
 			
-//		case "error":
-//			RequestHelper.processError(request,response);
-//			break;
+		case "error":
+			RequestHelper.processError(request,response);
+			break;
 		}
 		
 	}

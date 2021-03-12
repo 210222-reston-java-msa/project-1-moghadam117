@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="ISO-8859-1" />
-    <title>Home-man</title>
+    <title>Home</title>
 
     <link
       rel="stylesheet"
@@ -19,7 +19,7 @@
           ><strong>EMPLOYEE LIST AND REIMBURSEMENTS</strong></a
         >
         <a class="nav-link" href="assigned-man.html"
-          ><strong>RESOLVE PENDING REIMBURSEMENTS</strong></a
+          ><strong>PENDING REIMBURSEMENTS</strong></a
         >
         <a class="nav-link" href="list-man.html"
           ><strong>VIEW LIST OF EMPLOYEES</strong></a
@@ -30,36 +30,38 @@
         class="navbar-brand mb-0 h1"
         style="text-transform: uppercase"
         id="welcome"
-      ></span>
+        >name</span
+      >
     </nav>
 
     <br />
     <br />
     <br />
-    <div style="text-align: center" class="d-inline-flex p- bd-highlight">
-      <div style="margin-left: 220px" class="card w-40">
-        <div class="card-body">
-          <h5 class="card-title">Employee List and Reimbursements</h5>
-          <p class="card-text">
-            To view the employees and list of reimbursements click below
-          </p>
-          <a href="#" class="btn btn-primary" onclick="reimbursement()"
-            >Click Here</a
-          >
-        </div>
+    <div style="max-width: 90%; margin: auto">
+      <div style="background-color: lightblue; height: 40px; padding: 5px">
+        <strong> VIEW LIST OF EMPLOYEES </strong>
       </div>
-
-      <div style="margin-left: 50px" class="card w-40">
-        <div class="card-body">
-          <h5 class="card-title">Resolve Pending Reimbursements</h5>
-          <p class="card-text">
-            To take action on pending reimbursements click below
-          </p>
-          <a href="#" class="btn btn-primary" onclick="assigned()"
-            >Click Here</a
-          >
-        </div>
-      </div>
+    </div>
+    <br />
+    <div style="width: 90%; margin: auto">
+      <table
+        style="background-color: white; text-align: center"
+        class="table table-hover"
+      >
+        <thead>
+          <tr>
+            <th scope="col">USER ID</th>
+            <th scope="col">USERNAME</th>
+            <th scope="col">PASSWORD</th>
+            <th scope="col">FIRST NAME</th>
+            <th scope="col">LAST NAME</th>
+            <th scope="col">EMAIL</th>
+            <th scope="col" style="display: none">ROLE ID</th>
+            <th scope="col">ROLE NAME</th>
+          </tr>
+        </thead>
+        <tbody id="table"></tbody>
+      </table>
     </div>
 
     <div
@@ -75,6 +77,6 @@
       <p class="card-text">To logout and enter login page click button below</p>
       <a class="btn btn-primary" onclick="logout()">Click Here</a>
     </div>
-    <script src="scripts/home-man.js"></script>
+    <script src="scripts/list-man.js"></script>
   </body>
 </html>

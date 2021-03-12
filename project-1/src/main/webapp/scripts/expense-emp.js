@@ -46,9 +46,12 @@ if (userString === null) {
             td.innerHTML = obj.description;
             td = document.createElement("td");
             tr.appendChild(td);
-            td.innerHTML = obj.submitDate;
+            td.innerHTML = obj.submitDate.slice(0,19);
             td = document.createElement("td");
             tr.appendChild(td);
+            if (obj.resolveDate != null)
+            td.innerHTML = obj.resolveDate.slice(0,19);
+            else 
             td.innerHTML = obj.resolveDate;
             td = document.createElement("td");
             tr.appendChild(td);
