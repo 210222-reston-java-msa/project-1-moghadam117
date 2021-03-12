@@ -18,11 +18,11 @@ public class ManagerService {
 	
 	public static User findByUsername(String username) {
 		List<User> all = uDao.findAll();
-		//List<Employee> all = findAll(); // another way to do it
 		
-		for (User u : all) { // filtering with an enhanced for-loop!
+		
+		for (User u : all) { 
 			if (u.getUsername().equals(username)) {
-				return u; // we return the Employee object with a matching ID
+				return u;
 			}
 		}
 		
@@ -30,21 +30,21 @@ public class ManagerService {
 	}
 	public static User findByEmail(String email) {
 		List<User> all = uDao.findAll();
-		//List<Employee> all = findAll(); // another way to do it
+	
 		
-		for (User u : all) { // filtering with an enhanced for-loop!
+		for (User u : all) { 
 			if (u.getEmail().equals(email)) {
-				return u; // we return the Employee object with a matching ID
+				return u; 
 			}
 		}
 		
 		return null;
 	}
 	
-	// confirm login method
+	
 	public static User confirmLoginMan(String username, String password) {
 		
-		// we use the above method
+		
 		User u = findByUsername(username);
 		
 		if (u == null) {
@@ -59,7 +59,7 @@ public class ManagerService {
 	}
 public static User confirmLoginEmp(String username, String password) {
 		
-		// we use the above method
+		
 		User u = findByUsername(username);
 		
 		if (u == null) {
@@ -74,7 +74,7 @@ public static User confirmLoginEmp(String username, String password) {
 	}
 public static User confirmUpdate(int userId, String username, String password, String firstname, String lastname, String email) {
 	
-	// we use the above method
+	
 	User u = findByUsername(username);
 	User u2 = findByEmail(email);
 	if (u == null && u2 == null) {

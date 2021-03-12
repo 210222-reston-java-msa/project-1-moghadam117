@@ -20,11 +20,11 @@ public static List<Reimbursement> findAll() {
 
 public static List<Reimbursement> findByUserID(int id)  {
 	List<Reimbursement> all = rDao.findAll();
-	//List<Employee> all = findAll(); // another way to do it
 	
-	for (Reimbursement r : all) { // filtering with an enhanced for-loop!
+	
+	for (Reimbursement r : all) { 
 		if (r.getAuthorId() == id ){
-			return all; // we return the Employee object with a matching ID
+			return all; 
 		}
 	}
 	

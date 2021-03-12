@@ -1,7 +1,7 @@
-// capture the welcome element and modofy it so that it says welcome + username
+
 let welcome = document.getElementById("welcome");
 
-// capture the userString by accessing the session.....
+
 var userString = sessionStorage.getItem("currentUser");
 
 if (userString === null) {

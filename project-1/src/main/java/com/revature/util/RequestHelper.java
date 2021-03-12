@@ -32,11 +32,11 @@ public class RequestHelper {
 
 	public static void processLoginEmp(HttpServletRequest req, HttpServletResponse res) throws IOException {
 
-		// We want to turn whatever we recieve as the request into a string to process
+		
 		BufferedReader reader = req.getReader();
 		StringBuilder s = new StringBuilder();
 
-		// logic to transfer everything from our reader to our string builder
+		
 		String line = reader.readLine();
 		while (line != null) {
 			s.append(line);
@@ -46,9 +46,8 @@ public class RequestHelper {
 		String body = s.toString();
 		log.info(body);
 
-		// I'm going to build a model called LoginTemplate which holds a username and
-		// passwrod
-		LoginTemplate loginAttempt = om.readValue(body, LoginTemplate.class); // from JSON --> Java Object
+		
+		LoginTemplate loginAttempt = om.readValue(body, LoginTemplate.class); 
 
 		String username = loginAttempt.getUsername();
 		String password = loginAttempt.getPassword();
@@ -57,7 +56,7 @@ public class RequestHelper {
 		User u = ManagerService.confirmLoginEmp(username, password);
 
 		if (u != null) {
-			// get the current session OR create one if it doesn't exist
+		
 			HttpSession session = req.getSession();
 			session.setAttribute("username", username);
 
@@ -67,18 +66,18 @@ public class RequestHelper {
 
 			log.info(username + " has successfully logged in");
 		} else {
-			res.setStatus(204); // this means that we still have a connection, but no user is found
+			res.setStatus(204); 
 		}
 
 	}
 
 	public static void processLoginMan(HttpServletRequest req, HttpServletResponse res) throws IOException {
 
-		// We want to turn whatever we recieve as the request into a string to process
+	
 		BufferedReader reader = req.getReader();
 		StringBuilder s = new StringBuilder();
 
-		// logic to transfer everything from our reader to our string builder
+		
 		String line = reader.readLine();
 		while (line != null) {
 			s.append(line);
@@ -88,9 +87,8 @@ public class RequestHelper {
 		String body = s.toString();
 		log.info(body);
 
-		// I'm going to build a model called LoginTemplate which holds a username and
-		// passwrod
-		LoginTemplate loginAttempt = om.readValue(body, LoginTemplate.class); // from JSON --> Java Object
+		
+		LoginTemplate loginAttempt = om.readValue(body, LoginTemplate.class); 
 
 		String username = loginAttempt.getUsername();
 		String password = loginAttempt.getPassword();
@@ -99,7 +97,7 @@ public class RequestHelper {
 		User u = ManagerService.confirmLoginMan(username, password);
 
 		if (u != null) {
-			// get the current session OR create one if it doesn't exist
+			
 			HttpSession session = req.getSession();
 			session.setAttribute("username", username);
 
@@ -109,7 +107,7 @@ public class RequestHelper {
 
 			log.info(username + " has successfully logged in");
 		} else {
-			res.setStatus(204); // this means that we still have a connection, but no user is found
+			res.setStatus(204);
 		}
 
 	}
@@ -117,7 +115,7 @@ public class RequestHelper {
 	public static void processLogout(HttpServletRequest req, HttpServletResponse res) throws IOException {
 
 		HttpSession session = req.getSession(false);
-		// Log.info("Processing logout");
+		
 
 		if (session != null) {
 			String username = (String) session.getAttribute("username");
@@ -143,9 +141,8 @@ public class RequestHelper {
 		String body = s.toString();
 		log.info(body);
 
-		// I'm going to build a model called LoginTemplate which holds a username and
-		// passwrod
-		UpdateTemplate updateAttempt = om.readValue(body, UpdateTemplate.class); // from JSON --> Java Object
+		
+		UpdateTemplate updateAttempt = om.readValue(body, UpdateTemplate.class);
 
 		String firstname = updateAttempt.getFirstname();
 		String lastname = updateAttempt.getLastname();
@@ -183,6 +180,7 @@ public class RequestHelper {
 		PrintWriter pw = res.getWriter();
 
 		pw.println(json);
+		log.info("Manager attempted to get all the reimbursements ");
 	}
 
 	public static void processFindByUserId(HttpServletRequest req, HttpServletResponse res) throws IOException {
@@ -197,9 +195,9 @@ public class RequestHelper {
 		}
 
 		String body = s.toString();
-		//log.info(body);
+		
 
-		IdTemplate idAttempt = om.readValue(body, IdTemplate.class); // from JSON --> Java Object
+		IdTemplate idAttempt = om.readValue(body, IdTemplate.class); 
 
 		int id = idAttempt.getId();
 
@@ -207,7 +205,7 @@ public class RequestHelper {
 
 		List<Reimbursement> allReimById = ReimbursementService.findByUserID(id);
 		System.out.println(allReimById);
-		log.info("User requested reimbursments list");
+		log.info("User requested reimbursment by ID");
 		String json = om.writeValueAsString(allReimById);
 
 		PrintWriter pw = res.getWriter();
@@ -229,9 +227,8 @@ public class RequestHelper {
 		String body = s.toString();
 		log.info(body);
 
-		// I'm going to build a model called LoginTemplate which holds a username and
-		// passwrod
-		SubmitTemplate submitAttempt = om.readValue(body, SubmitTemplate.class); // from JSON --> Java Object
+		
+		SubmitTemplate submitAttempt = om.readValue(body, SubmitTemplate.class); 
 
 		int amount = submitAttempt.getAmount();
 		String description = submitAttempt.getDescription();
@@ -239,7 +236,7 @@ public class RequestHelper {
 		int typeId = submitAttempt.getTypeId();
 		
 
-		log.info("User attempted to Submit");
+		log.info("User attempted to Submit Reimbursement");
 		
 		Reimbursement reimb = new Reimbursement(0, amount, description, "s", authorId, new Status (1, "ss"), new Type(typeId, "ss"));
 		ReimbursementService rs = new ReimbursementService();
@@ -274,9 +271,9 @@ public class RequestHelper {
 		}
 
 		String body = s.toString();
-		//log.info(body);
+		
 
-		IdTemplate idAttempt = om.readValue(body, IdTemplate.class); // from JSON --> Java Object
+		IdTemplate idAttempt = om.readValue(body, IdTemplate.class);
 
 		int statusId = idAttempt.getId();
 
@@ -284,7 +281,7 @@ public class RequestHelper {
 
 		List<Reimbursement> allReimByStatus = ReimbursementService.findByStatus(statusId);
 		System.out.println(statusId);
-		log.info("User requested reimbursments list");
+		log.info("User requested reimbursments list by status");
 		String json = om.writeValueAsString(allReimByStatus);
 
 		PrintWriter pw = res.getWriter();
@@ -305,9 +302,8 @@ public class RequestHelper {
 		String body = s.toString();
 		log.info(body);
 
-		// I'm going to build a model called LoginTemplate which holds a username and
-		// passwrod
-		ResolveTemplate resolveAttempt = om.readValue(body, ResolveTemplate.class); // from JSON --> Java Object
+		
+		ResolveTemplate resolveAttempt = om.readValue(body, ResolveTemplate.class);
 
 		int reimbId = resolveAttempt.getReimbId();
 		
@@ -337,8 +333,7 @@ public static void processError(HttpServletRequest req, HttpServletResponse res)
 		
 		try {
 			req.getRequestDispatcher("error.html").forward(req, res);
-			// we do NOT create a new request
-			// we also maintain the url....
+			
 		} catch (ServletException | IOException e) {
 			e.printStackTrace();
 		}
@@ -355,6 +350,7 @@ public static void processError(HttpServletRequest req, HttpServletResponse res)
 		PrintWriter pw = res.getWriter();
 
 		pw.println(json);
+		log.info("Manager attempted find All employees");
 	}
 
 

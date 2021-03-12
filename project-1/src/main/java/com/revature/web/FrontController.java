@@ -18,7 +18,7 @@ public class FrontController extends HttpServlet {
   
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		// we will rewrite the URL's 
+		
 		final String URI = request.getRequestURI().replace("/project-1/", "");
 		
 		switch(URI) {
