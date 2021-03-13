@@ -35,13 +35,13 @@ public class FrontController extends HttpServlet {
 			RequestHelper.processUpdate(request, response);
 			break;
 		case "expense-emp":
-			RequestHelper.processFindByUserId(request, response);
+			RequestHelper.processFindByAuthorId(request, response);
 			break;
 		case "submit-emp":
 			RequestHelper.processSubmitReimb(request, response);
 			break;
 		case "reimb-man":
-			RequestHelper.processFindByUserId(request, response);
+			RequestHelper.processFindByAuthorId(request, response);
 			break;	
 		case "reimb-status":
 			RequestHelper.processFindByStatus(request, response);

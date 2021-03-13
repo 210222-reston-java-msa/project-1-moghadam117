@@ -183,7 +183,7 @@ public class RequestHelper {
 		log.info("Manager attempted to get all the reimbursements ");
 	}
 
-	public static void processFindByUserId(HttpServletRequest req, HttpServletResponse res) throws IOException {
+	public static void processFindByAuthorId(HttpServletRequest req, HttpServletResponse res) throws IOException {
 
 		BufferedReader reader = req.getReader();
 		StringBuilder s = new StringBuilder();
@@ -199,11 +199,11 @@ public class RequestHelper {
 
 		IdTemplate idAttempt = om.readValue(body, IdTemplate.class); 
 
-		int id = idAttempt.getId();
+		int aId = idAttempt.getId();
 
 		res.setContentType("application/json");
 
-		List<Reimbursement> allReimById = ReimbursementService.findByUserID(id);
+		List<Reimbursement> allReimById = ReimbursementService.findByAuthorId(aId);
 		System.out.println(allReimById);
 		log.info("User requested reimbursment by ID");
 		String json = om.writeValueAsString(allReimById);
@@ -288,6 +288,35 @@ public class RequestHelper {
 
 		pw.println(json);
 	}
+
+	/*
+	 * public static void processFindByUserId(HttpServletRequest req,
+	 * HttpServletResponse res) throws IOException {
+	 * 
+	 * BufferedReader reader = req.getReader(); StringBuilder s = new
+	 * StringBuilder();
+	 * 
+	 * String line = reader.readLine(); while (line != null) { s.append(line); line
+	 * = reader.readLine(); }
+	 * 
+	 * String body = s.toString();
+	 * 
+	 * 
+	 * IdTemplate idAttempt = om.readValue(body, IdTemplate.class);
+	 * 
+	 * int id = idAttempt.getId();
+	 * 
+	 * res.setContentType("application/json");
+	 * 
+	 * List<Reimbursement> allReimById = ReimbursementService.findByUserID(id);
+	 * System.out.println(allReimById);
+	 * log.info("User requested reimbursment by ID"); String json =
+	 * om.writeValueAsString(allReimById);
+	 * 
+	 * PrintWriter pw = res.getWriter();
+	 * 
+	 * pw.println(json); }
+	 */
 	public static void processResolve(HttpServletRequest req, HttpServletResponse res) throws IOException {
 
 		BufferedReader reader = req.getReader();

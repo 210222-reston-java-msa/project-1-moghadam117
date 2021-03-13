@@ -59,11 +59,7 @@ public class ReimbDAOImpl implements ReimbDAO {
 				return list;
 	}
 
-	@Override
-	public List<Reimbursement> findByUserId() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 
 	@Override
 	public List<Reimbursement> findByStatus(int statusId) {
@@ -103,7 +99,43 @@ public class ReimbDAOImpl implements ReimbDAO {
 
 				return list;
 	}
+	public List<Reimbursement> findByAuthorId(int aId) {
+		List<Reimbursement> list = new ArrayList<Reimbursement>();
+		try {
+					
+					Connection conn = ConnectionUtil.getConnection();
+					
+					String sql = "select reimb_id, reimb_amount , reimb_description , reimb_submitted , reimb_resolved , reimb_author, reimb_resolver, reimb_status , reimb_type from ers_reimbursement er inner join ers_reimbursement_status ers on er.reimb_status_id = ers .reimb_status_id inner join ers_reimbursement_type ert on er.reimb_type_id = ert.reimb_type_id where er.reimb_author = ?";
+					
+					PreparedStatement stmt = conn.prepareStatement(sql);
+					stmt.setInt(1, aId);
+					ResultSet rs = stmt.executeQuery();
+					
+					while(rs.next()) {
+						int reimbId = rs.getInt("REIMB_ID");
+						int amount = rs.getInt("REIMB_AMOUNT");
+						String description = rs.getString("REIMB_DESCRIPTION");
+						String submitDate = rs.getString("REIMB_SUBMITTED");
+						String resolveDate = rs.getString("REIMB_RESOLVED");
+						int authorId = rs.getInt("REIMB_AUTHOR");
+						int resolverId = rs.getInt("REIMB_RESOLVER");
+						String statusName = rs.getString("reimb_status");
+						String typeName = rs.getString("reimb_type");
+						
+						
+						Reimbursement r = new Reimbursement(reimbId, amount, description, submitDate, resolveDate, authorId, resolverId, new Status(100, statusName), new Type (1, typeName));
+						
+						list.add(r);
+						
+					}
 
+				} catch (SQLException ex) {
+					log.warn("Unable to retrieve all users", ex);
+
+				}
+
+				return list;
+	}
 	@Override
 	public void updateReimbMan(Reimbursement reimbursement) {
 		// TODO Auto-generated method stub
@@ -164,4 +196,8 @@ public class ReimbDAOImpl implements ReimbDAO {
 	}
 		
 	}
+	/*
+	 * @Override public List<Reimbursement> findByUserId() { // TODO Auto-generated
+	 * method stub return null; }
+	 */
 }

@@ -15,7 +15,7 @@ public class Driver {
 		ManagerService mg = new ManagerService();
 		
 		ReimbursementService rs = new ReimbursementService();
-		System.out.println(mg.findAll());
+		//System.out.println(rs.findByUserID(2));
 	//	Reimbursement r = new Reimbursement(0, 400, "xxx", "s", 2, new Status(1,"ss") ,new Type(2, "vv"));
 		//rs.submitReimbEmp(r);
 	//	Reimbursement reimb = new Reimbursement(0, 200, "Xyz", "s", 2, new Status (1, "ss"), new Type(1, "ss"));

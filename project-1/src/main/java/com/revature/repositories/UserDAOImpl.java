@@ -24,7 +24,7 @@ try {
 			
 			Connection conn = ConnectionUtil.getConnection();
 			
-			String sql = "SELECT * FROM ers_users inner join ers_users_role on ers_users.ers_users_id = ers_users_role.ers_users_role_id";
+			String sql = "SELECT * FROM ers_users inner join ers_users_role on ers_users.user_role_id = ers_users_role.ers_users_role_id order by ers_users_id";
 			
 			PreparedStatement stmt = conn.prepareStatement(sql);
 

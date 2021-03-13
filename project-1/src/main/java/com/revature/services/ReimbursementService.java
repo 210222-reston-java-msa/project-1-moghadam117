@@ -1,5 +1,6 @@
 package com.revature.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.revature.models.Reimbursement;
@@ -18,17 +19,9 @@ public static List<Reimbursement> findAll() {
 	return rDao.findAll();
 }
 
-public static List<Reimbursement> findByUserID(int id)  {
-	List<Reimbursement> all = rDao.findAll();
+public static List<Reimbursement> findByAuthorId(int aId)  {
+	return rDao.findByAuthorId(aId);
 	
-	
-	for (Reimbursement r : all) { 
-		if (r.getAuthorId() == id ){
-			return all; 
-		}
-	}
-	
-	return null;
 }
 
 public static List<Reimbursement> findByStatus(int statusId) {
@@ -38,4 +31,16 @@ public static List<Reimbursement> findByStatus(int statusId) {
 public static void resolveReimbMan (Reimbursement reimbursement) {
 	rDao.resolveReimbMan(reimbursement);
 }
+
+/*
+ * public static List<Reimbursement> findByUserID(int id) { List<Reimbursement>
+ * all = rDao.findAll(); List<Reimbursement> filter = new
+ * ArrayList<Reimbursement>();
+ * 
+ * for (Reimbursement r : all) { if (r.getAuthorId() == id ){ filter.add(r);
+ * 
+ * } return filter; }
+ * 
+ * return null; }
+ */
 }
